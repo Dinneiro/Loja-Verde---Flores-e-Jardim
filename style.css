@@ -1,0 +1,184 @@
+/* Paleta pastel e estilo delicado */
+:root {
+  --rosa: #f8d7da;
+  --lavanda: #e6e6fa;
+  --menta: #d0f0c0;
+  --amarelo: #fff5ba;
+  --bege: #faf3e0;
+  --verde-folha: #6da06f;
+  --branco: #ffffff;
+  --cinza: #555;
+}
+
+body {
+  margin: 0;
+  font-family: 'Lato', sans-serif;
+  background: var(--bege) url("https://www.transparenttextures.com/patterns/paper-fibers.png");
+  color: var(--cinza);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Cabeçalho */
+header {
+  background: var(--branco);
+  border-bottom: 2px solid var(--verde-folha);
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.logo {
+  font-family: 'Great Vibes', cursive;
+  font-size: 2rem;
+  color: var(--verde-folha);
+}
+
+nav button {
+  margin: 0.3rem 0.4rem;
+  padding: 0.6rem 1.2rem;
+  background: var(--lavanda);
+  color: var(--cinza);
+  border: none;
+  cursor: pointer;
+  border-radius: 8px;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+nav button:hover {
+  background: var(--rosa);
+  transform: scale(1.05);
+}
+
+/* Grid de produtos */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 2rem;
+  margin-top: 1rem;
+}
+
+.product {
+  border-radius: 15px;
+  background: var(--branco);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  padding: 1rem;
+  text-align: center;
+  transition: transform 0.3s;
+}
+
+.product img {
+  border-radius: 12px;
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.product strong {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.2rem;
+  color: var(--verde-folha);
+}
+
+.product:hover {
+  transform: translateY(-8px);
+}
+
+button.add {
+  background: var(--verde-folha);
+  padding: 0.6rem 1rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  color: white;
+  margin-top: 0.5rem;
+}
+
+button.add:hover { background: #558f5a; }
+
+/* Modal */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal.hidden { display: none; }
+
+.modal-content {
+  background: var(--branco);
+  padding: 2rem;
+  border-radius: 15px;
+  width: 400px;
+  color: var(--cinza);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+}
+
+.close {
+  float: right;
+  font-size: 24px;
+  cursor: pointer;
+  color: var(--verde-folha);
+}
+
+/* Inputs */
+input, textarea {
+  margin: 0.5rem 0;
+  padding: 0.7rem;
+  width: 90%;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+/* Toasts */
+.toast {
+  visibility: hidden;
+  min-width: 220px;
+  color: #fff;
+  text-align: center;
+  border-radius: 8px;
+  padding: 1rem;
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
+  font-weight: bold;
+  opacity: 0;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  transform: translateY(-20px);
+}
+
+.toast.show {
+  visibility: visible;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.toast-carrinho { background-color: var(--verde-folha); }
+.toast-favorito { background-color: var(--rosa); }
+
+/* Rodapé */
+footer {
+  background: var(--lavanda);
+  text-align: center;
+  padding: 1rem;
+  font-size: 0.9rem;
+  color: var(--cinza);
+  border-top: 2px solid var(--verde-folha);
+}
+
+.botanical-detail { font-size: 0.8rem; color: var(--verde-folha); margin-top: 0.3rem; }
+
+/* Responsividade */
+@media (max-width: 768px) { .grid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 480px) { .grid { grid-template-columns: 1fr; } }

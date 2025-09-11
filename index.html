@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Loja Verde - Flores e Jardim</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- Fontes Google -->
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@500&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+  <!-- Ícones -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+  <header>
+    <h1 class="logo">Loja Verde</h1>
+    <nav>
+      <button onclick="showPage('home')"><i class="fa fa-home"></i> Home</button>
+      <button onclick="showPage('aniversario')"><i class="fa fa-gift"></i> Aniversário</button>
+      <button onclick="showPage('casamento')"><i class="fa fa-ring"></i> Casamento</button>
+      <button onclick="showPage('condolencias')"><i class="fa fa-dove"></i> Condolências</button>
+      <button onclick="showPage('carrinho')"><i class="fa fa-shopping-cart"></i> Carrinho</button>
+      <button onclick="showPage('favoritos')"><i class="fa fa-heart"></i> Favoritos</button>
+      <button onclick="showPage('config')"><i class="fa fa-user"></i> Perfil</button>
+      <button onclick="showPage('atendimento')"><i class="fa fa-headset"></i> Atendimento</button>
+      <button onclick="showPage('login')"><i class="fa fa-sign-in-alt"></i> Login</button>
+    </nav>
+  </header>
+
+  <main id="content"></main>
+
+  <!-- Modal Produto -->
+  <div id="modalProduto" class="modal hidden">
+    <div class="modal-content">
+      <span class="close" onclick="fecharModal()">&times;</span>
+      <div id="detalhesProduto"></div>
+    </div>
+  </div>
+
+  <!-- Toasts -->
+  <div id="toastCarrinho" class="toast toast-carrinho">Adicionado ao Carrinho!</div>
+  <div id="toastFavorito" class="toast toast-favorito">Adicionado aos Favoritos!</div>
+
+  <!-- Rodapé -->
+  <footer>
+    <p>© Thiago Oliveira 2025 - Todos os direitos reservados 🌷</p>
+    <p class="botanical-detail">🌿 Inspiração da natureza</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
