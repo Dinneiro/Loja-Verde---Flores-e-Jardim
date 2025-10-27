@@ -10,8 +10,10 @@
 </head>
 <body>
 
+  <!-- Tela de Login/Cadastro -->
   <div id="loginScreen" class="hidden"></div>
 
+  <!-- Cabeçalho -->
   <header id="mainHeader">
     <h1 class="logo">Loja Verde</h1>
     <nav>
@@ -19,6 +21,7 @@
       <button onclick="showPage('aniversario')"><i class="fa fa-gift"></i> Aniversário</button>
       <button onclick="showPage('casamento')"><i class="fa fa-ring"></i> Casamento</button>
       <button onclick="showPage('condolencias')"><i class="fa fa-dove"></i> Condolências</button>
+      <button onclick="showPage('jardim')"><i class="fa fa-seedling"></i> Jardim</button>
       <button onclick="showPage('carrinho')"><i class="fa fa-shopping-cart"></i> Carrinho</button>
       <button onclick="showPage('favoritos')"><i class="fa fa-heart"></i> Favoritos</button>
       <button onclick="showPage('config')"><i class="fa fa-user"></i> Perfil</button>
@@ -27,8 +30,10 @@
     </nav>
   </header>
 
+  <!-- Conteúdo Principal -->
   <main id="content"></main>
 
+  <!-- Modal de Produto -->
   <div id="modalProduto" class="modal hidden">
     <div class="modal-content">
       <span class="close" onclick="fecharModal()">&times;</span>
@@ -36,14 +41,23 @@
     </div>
   </div>
 
+  <!-- Toasts -->
   <div id="toastCarrinho" class="toast toast-carrinho"></div>
   <div id="toastFavorito" class="toast toast-favorito"></div>
 
+  <!-- Rodapé -->
   <footer id="mainFooter">
     <p>© Thiago Oliveira 2025 - Todos os direitos reservados 🌷</p>
     <p class="botanical-detail">🌿 Inspiração da natureza</p>
   </footer>
 
+  <!-- Scripts -->
   <script src="script.js"></script>
+  <div id="modalProduto" class="hidden">
+  <div class="modal-conteudo">
+    <span class="modal-fechar" onclick="fecharModal()">&times;</span>
+    <!-- O conteúdo do produto é preenchido dinamicamente via JS -->
+  </div>
+</div>
 </body>
 </html>
