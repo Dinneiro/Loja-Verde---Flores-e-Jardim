@@ -8,6 +8,9 @@
   --branco: #ffffff;
   --cinza: #555;
   --vermelho-acao: #e5533d;
+  --vermelho-erro: #dc3545;
+  --verde-sucesso: #28a745;
+  --laranja-aviso: #ffc107;
 }
 
 body {
@@ -100,6 +103,8 @@ input, textarea {
   border: 1px solid #ccc;
   box-sizing: border-box; 
 }
+textarea { width: 100%; min-height: 80px; }
+
 
 .profile-card {
   background: var(--branco);
@@ -128,11 +133,11 @@ input, textarea {
 }
 .toast.show { opacity: 1; }
 .toast-carrinho { 
-  background: var(--verde-folha); 
+  background: var(--verde-sucesso); /* Verde sucesso */
   top: 20px; /* Posição do primeiro toast */
 }
 .toast-favorito { 
-  background: var(--vermelho-acao); /* Cor mais forte para erros */
+  background: var(--vermelho-erro); /* Vermelho erro/aviso */
   color: var(--branco);
   top: 90px; /* Posição do segundo toast (abaixo do primeiro) */
 }
@@ -146,7 +151,9 @@ footer {
   margin-top: auto;
 }
 
-/* Estilos do Modal */
+/* ============================ */
+/* NOVOS ESTILOS DO MODAL */
+/* ============================ */
 .modal {
     position: fixed;
     z-index: 10;
@@ -167,9 +174,9 @@ footer {
     border-radius: 12px;
     box-shadow: 0 5px 15px rgba(0,0,0,0.3);
     width: 90%;
-    max-width: 500px;
+    max-width: 700px; /* Modal maior para caber as infos */
     position: relative;
-    text-align: center;
+    text-align: left; /* Alinha o conteúdo à esquerda */
 }
 .close {
     color: var(--cinza);
@@ -181,7 +188,164 @@ footer {
     top: 10px;
     right: 20px;
 }
-.modal-content img { max-width: 100%; height: auto; border-radius: 8px; margin-bottom: 10px; }
+.modal-content img { width: 100%; border-radius: 8px; margin-bottom: 10px; }
+
+/* Grid do Modal (Imagem + Infos) */
+.modal-produto-grid {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+.modal-produto-col-img {
+    flex: 1;
+}
+.modal-produto-col-info {
+    flex: 1.5;
+}
+.modal-descricao {
+    font-size: 0.9rem;
+    line-height: 1.4;
+    margin-bottom: 1rem;
+}
+.product-details-list {
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0;
+    font-size: 0.9rem;
+}
+.detail-item {
+    margin-bottom: 0.3rem;
+}
+
+/* Status de Estoque */
+.stock-status {
+    font-weight: bold;
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+}
+.in-stock { color: var(--verde-sucesso); }
+.low-stock { color: var(--laranja-aviso); }
+.out-of-stock { color: var(--vermelho-erro); }
+
+/* Opções de Compra (estilo Amazon) */
+.purchase-options {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 1rem;
+}
+.option-box {
+    border: 2px solid var(--verde-folha);
+    border-radius: 8px;
+    padding: 0.8rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #f9f9f9;
+}
+.option-box-info {
+    display: flex;
+    flex-direction: column;
+}
+.option-price {
+    font-weight: bold;
+    font-size: 1.1rem;
+    color: var(--vermelho-acao);
+}
+.add-to-cart-option-btn {
+    background: var(--verde-folha);
+    color: var(--branco);
+    border: none;
+    border-radius: 4px;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+}
+.add-to-cart-option-btn:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+}
+
+/* Seções (Sugestões e Comentários) */
+.modal-produto-secoes {
+    border-top: 1px solid #eee;
+    padding-top: 1rem;
+    display: flex;
+    gap: 20px;
+}
+.modal-secao {
+    flex: 1;
+}
+.modal-secao h3 {
+    margin-top: 0;
+    border-bottom: 2px solid var(--lavanda);
+    padding-bottom: 5px;
+}
+
+/* Sugestões */
+.suggestions-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-height: 200px; /* Limita a altura */
+    overflow-y: auto; /* Adiciona scroll se houver muitos */
+}
+.suggestion-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--bege);
+    padding: 5px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+.suggestion-item:hover {
+    background: var(--lavanda);
+}
+.suggestion-item img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 4px;
+}
+.suggestion-details {
+    display: flex;
+    flex-direction: column;
+    font-size: 0.9rem;
+}
+.suggestion-details span {
+    font-weight: bold;
+    color: var(--verde-folha);
+}
+
+/* Comentários */
+.comentarios-lista {
+    max-height: 150px; /* Limita altura */
+    overflow-y: auto; /* Adiciona scroll */
+    margin-bottom: 10px;
+    padding: 5px;
+    border: 1px solid #eee;
+    border-radius: 4px;
+}
+.comment-item {
+    font-size: 0.9rem;
+    margin: 5px 0;
+    padding-bottom: 5px;
+    border-bottom: 1px dotted #ccc;
+}
+.comment-btn {
+    background: var(--verde-folha);
+    color: white;
+    border: none;
+    padding: 0.5rem;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100px;
+}
+/* ============================ */
+/* FIM DOS ESTILOS DO MODAL */
+/* ============================ */
+
 
 /* Estilos Carrinho e Checkout */
 .carrinho-list { margin: 1rem auto; max-width: 800px; }
@@ -330,4 +494,12 @@ footer {
     .checkout-container { flex-direction: column; }
     .checkout-resumo { max-height: none; }
     .topicos-grid { grid-template-columns: 1fr; }
+
+    /* Ajustes no modal para mobile */
+    .modal-produto-grid {
+        flex-direction: column;
+    }
+    .modal-produto-secoes {
+        flex-direction: column;
+    }
 }
