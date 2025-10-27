@@ -1,4 +1,3 @@
-/* Paleta pastel e estilo delicado */
 :root {
   --rosa: #f8d7da;
   --lavanda: #e6e6fa;
@@ -8,19 +7,19 @@
   --verde-folha: #6da06f;
   --branco: #ffffff;
   --cinza: #555;
+  --vermelho-acao: #e5533d;
 }
 
 body {
   margin: 0;
   font-family: 'Lato', sans-serif;
-  background: var(--bege) url("https://www.transparenttextures.com/patterns/paper-fibers.png");
+  background: var(--bege);
   color: var(--cinza);
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
 }
 
-/* Cabeçalho */
 header {
   background: var(--branco);
   border-bottom: 2px solid var(--verde-folha);
@@ -38,147 +37,297 @@ header {
 }
 
 nav button {
-  margin: 0.3rem 0.4rem;
+  margin: 0.3rem;
   padding: 0.6rem 1.2rem;
   background: var(--lavanda);
-  color: var(--cinza);
   border: none;
-  cursor: pointer;
   border-radius: 8px;
+  cursor: pointer;
   font-weight: bold;
-  transition: all 0.3s ease;
+  transition: 0.3s;
 }
 
-nav button:hover {
-  background: var(--rosa);
-  transform: scale(1.05);
+nav button:hover { background: var(--rosa); transform: scale(1.05); }
+
+.hidden { display: none !important; }
+
+/* Main content (para centralizar o login) */
+main#content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 1200px; /* Limite da largura do conteúdo */
+    margin: 0 auto;
+    padding: 1rem;
+    box-sizing: border-box;
 }
 
-/* Grid de produtos */
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-  gap: 2rem;
-  margin-top: 1rem;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 1.5rem;
+  margin: 1rem;
 }
 
 .product {
-  border-radius: 15px;
   background: var(--branco);
-  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
   padding: 1rem;
   text-align: center;
-  transition: transform 0.3s;
 }
 
-.product img {
-  border-radius: 12px;
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-}
-
-.product strong {
-  font-family: 'Playfair Display', serif;
-  font-size: 1.2rem;
-  color: var(--verde-folha);
-}
-
-.product:hover {
-  transform: translateY(-8px);
-}
+.product img { width: 100%; border-radius: 10px; height: 180px; object-fit: cover; }
 
 button.add {
   background: var(--verde-folha);
-  padding: 0.6rem 1rem;
+  color: #fff;
   border: none;
   border-radius: 8px;
-  cursor: pointer;
-  color: white;
+  padding: 0.5rem 1rem;
   margin-top: 0.5rem;
-}
-
-button.add:hover { background: #558f5a; }
-
-/* Modal */
-.modal {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,0.6);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.modal.hidden { display: none; }
-
-.modal-content {
-  background: var(--branco);
-  padding: 2rem;
-  border-radius: 15px;
-  width: 400px;
-  color: var(--cinza);
-  box-shadow: 0 6px 15px rgba(0,0,0,0.2);
-}
-
-.close {
-  float: right;
-  font-size: 24px;
   cursor: pointer;
-  color: var(--verde-folha);
 }
+button.add:hover { background: #4d7f4e; }
 
-/* Inputs */
+/* Ajuste nos inputs para funcionarem melhor no login */
 input, textarea {
-  margin: 0.5rem 0;
-  padding: 0.7rem;
-  width: 90%;
+  margin: 0.4rem 0;
+  padding: 0.6rem;
+  width: 90%; /* Padrão para a maioria das páginas */
   border-radius: 8px;
   border: 1px solid #ccc;
+  box-sizing: border-box; 
 }
 
-/* Toasts */
-.toast {
-  visibility: hidden;
-  min-width: 220px;
-  color: #fff;
+.profile-card {
+  background: var(--branco);
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+  margin: 1rem auto;
+  width: 90%;
+  max-width: 400px;
   text-align: center;
-  border-radius: 8px;
-  padding: 1rem;
+}
+.profile-header { margin-bottom: 1rem; }
+.profile-img { width: 100px; height: 100px; border-radius: 50%; object-fit: cover; margin-bottom: 0.5rem; border: 3px solid var(--verde-folha); }
+
+/* --- ATUALIZAÇÃO DOS TOASTS --- */
+.toast {
   position: fixed;
-  top: 20px;
   right: 20px;
-  z-index: 1000;
+  padding: 1rem;
+  border-radius: 8px;
+  color: #fff;
   font-weight: bold;
   opacity: 0;
-  transition: opacity 0.5s ease, transform 0.5s ease;
-  transform: translateY(-20px);
+  transition: 0.4s;
+  z-index: 2000; /* Garante que fique sobre tudo */
 }
-
-.toast.show {
-  visibility: visible;
-  opacity: 1;
-  transform: translateY(0);
+.toast.show { opacity: 1; }
+.toast-carrinho { 
+  background: var(--verde-folha); 
+  top: 20px; /* Posição do primeiro toast */
 }
+.toast-favorito { 
+  background: var(--vermelho-acao); /* Cor mais forte para erros */
+  color: var(--branco);
+  top: 90px; /* Posição do segundo toast (abaixo do primeiro) */
+}
+/* --- FIM DA ATUALIZAÇÃO --- */
 
-.toast-carrinho { background-color: var(--verde-folha); }
-.toast-favorito { background-color: var(--rosa); }
 
-/* Rodapé */
 footer {
   background: var(--lavanda);
   text-align: center;
   padding: 1rem;
-  font-size: 0.9rem;
-  color: var(--cinza);
-  border-top: 2px solid var(--verde-folha);
+  margin-top: auto;
 }
 
-.botanical-detail { font-size: 0.8rem; color: var(--verde-folha); margin-top: 0.3rem; }
+/* Estilos do Modal */
+.modal {
+    position: fixed;
+    z-index: 10;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1001; /* Acima do site, abaixo dos toasts */
+}
+.modal-content {
+    background-color: var(--branco);
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    width: 90%;
+    max-width: 500px;
+    position: relative;
+    text-align: center;
+}
+.close {
+    color: var(--cinza);
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+}
+.modal-content img { max-width: 100%; height: auto; border-radius: 8px; margin-bottom: 10px; }
 
-/* Responsividade */
-@media (max-width: 768px) { .grid { grid-template-columns: 1fr 1fr; } }
-@media (max-width: 480px) { .grid { grid-template-columns: 1fr; } }
+/* Estilos Carrinho e Checkout */
+.carrinho-list { margin: 1rem auto; max-width: 800px; }
+.carrinho-item { display: flex; align-items: center; background: var(--branco); padding: 1rem; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); margin-bottom: 1rem; gap: 1rem; }
+.carrinho-img { width: 80px; height: 80px; object-fit: cover; border-radius: 4px; }
+.carrinho-detalhes { flex-grow: 1; text-align: left; }
+.carrinho-acoes { display: flex; flex-direction: column; align-items: flex-end; }
+.carrinho-qtd { font-weight: bold; margin-bottom: 0.3rem; }
+.carrinho-subtotal { font-weight: bold; color: var(--verde-folha); margin-bottom: 0.5rem; }
+.remove-btn { background: var(--rosa); color: var(--vermelho-acao); border: 1px solid var(--vermelho-acao); padding: 0.3rem 0.6rem; border-radius: 4px; cursor: pointer; font-size: 0.8rem; transition: 0.3s; }
+.remove-btn:hover { background: var(--vermelho-acao); color: var(--branco); }
+.carrinho-resumo { max-width: 800px; margin: 2rem auto; padding: 1.5rem; background: var(--lavanda); border-radius: 12px; text-align: right; }
+.checkout-btn { background: var(--verde-folha); color: var(--branco); border: none; padding: 1rem 2rem; border-radius: 8px; cursor: pointer; font-weight: bold; margin-top: 1rem; }
+.checkout-btn:hover { background: #4d7f4e; }
+.checkout-container { display: flex; justify-content: space-between; max-width: 1000px; margin: 2rem auto; gap: 2rem; flex-wrap: wrap; }
+.checkout-section { background: var(--branco); padding: 1.5rem; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); flex: 1; min-width: 300px; }
+.checkout-resumo { background: var(--lavanda); padding: 1.5rem; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); min-width: 300px; max-height: 300px; }
+.total-final { font-size: 1.5rem; color: var(--vermelho-acao); font-weight: bold; }
+.metodos-pagamento { margin-bottom: 1rem; display: flex; gap: 0.5rem; flex-wrap: wrap; }
+.metodo-btn { padding: 0.5rem 1rem; border: 1px solid var(--verde-folha); background: var(--branco); border-radius: 4px; cursor: pointer; }
+.metodo-btn.active { background: var(--verde-folha); color: var(--branco); }
+.confirm-btn { background: var(--vermelho-acao); color: var(--branco); border: none; padding: 1rem; width: 100%; border-radius: 8px; cursor: pointer; font-weight: bold; margin-top: 1rem; }
+.confirm-btn:hover { background: #c5402d; }
+
+/* Admin Grid */
+.admin-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem; margin-top: 1rem; }
+.admin-produto { background: var(--branco); padding: 1rem; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); display: flex; align-items: center; gap: 1rem; }
+.admin-acoes button { margin-left: 0.5rem; padding: 0.3rem 0.6rem; font-size: 0.8rem; }
+.add-btn { margin-top: 2rem; background: var(--verde-folha); color: var(--branco); border: none; padding: 0.8rem 1.5rem; border-radius: 8px; cursor: pointer; font-weight: bold; }
+
+/* Estilos Central de Atendimento */
+.topicos-container { max-width: 900px; margin: 2rem auto; padding: 1rem; }
+.atendimento-search { max-width: 600px; margin: 1rem auto 2rem; }
+.atendimento-search input { padding: 10px; border: 2px solid var(--verde-folha); border-radius: 4px; width: 100%; }
+.topicos-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; }
+.topico-card { background: var(--branco); border: 1px solid var(--lavanda); border-radius: 8px; padding: 1.5rem; text-align: center; box-shadow: 0 4px 8px rgba(0,0,0,0.05); cursor: pointer; transition: transform 0.2s, box-shadow 0.2s; }
+.topico-card:hover { transform: translateY(-5px); box-shadow: 0 6px 12px rgba(0,0,0,0.1); border-color: var(--verde-folha); }
+.topico-card i { font-size: 2.5rem; color: var(--verde-folha); margin-bottom: 0.5rem; }
+.topico-card span { display: block; font-weight: bold; }
+
+
+/* Estilos Tela de Login Obrigatória */
+#loginScreen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-image: url('https://source.unsplash.com/1600x900/?greenhouse,fern'); 
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.login-container {
+    width: 100%;
+    max-width: 450px; 
+    margin: 1rem; 
+    background: var(--branco);
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    overflow: hidden; 
+}
+.login-abas {
+    display: flex;
+    width: 100%;
+}
+.login-aba {
+    flex: 1;
+    padding: 1rem;
+    text-align: center;
+    cursor: pointer;
+    background: #f0f0f0;
+    border: none;
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: var(--cinza);
+    transition: 0.3s;
+}
+.login-aba.active {
+    background: var(--branco);
+    color: var(--verde-folha);
+    border-bottom: 2px solid var(--verde-folha);
+}
+.login-conteudo {
+    padding: 2rem;
+}
+.login-form {
+    display: none; 
+}
+.login-form.active {
+    display: block; 
+}
+.login-form h3 {
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+    color: var(--cinza);
+}
+
+.login-form input[type="text"],
+.login-form input[type="password"] {
+    width: 100%;
+    margin-bottom: 1rem;
+}
+.login-btn {
+    width: 100%;
+    padding: 0.8rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1rem;
+    margin-top: 0.5rem;
+    transition: 0.3s;
+}
+.login-btn.login {
+    background: var(--verde-folha);
+    color: var(--branco);
+}
+.login-btn.login:hover { background: #4d7f4e; }
+.login-btn.register {
+    background: var(--lavanda);
+    color: var(--cinza);
+}
+.login-btn.register:hover { background: var(--rosa); }
+
+.link-esqueceu {
+    display: block;
+    text-align: right;
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    color: var(--verde-folha);
+    text-decoration: none;
+}
+.link-esqueceu:hover { text-decoration: underline; }
+
+
+/* Responsividade Básica */
+@media (max-width: 768px) {
+    header { padding: 1rem; }
+    nav button { padding: 0.5rem 0.8rem; font-size: 0.9rem; }
+    .checkout-container { flex-direction: column; }
+    .checkout-resumo { max-height: none; }
+    .topicos-grid { grid-template-columns: 1fr; }
+}
