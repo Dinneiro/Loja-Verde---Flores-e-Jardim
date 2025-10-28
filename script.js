@@ -119,17 +119,19 @@ function showPage(page) {
   // SE NÃO ESTIVER LOGADO -> MOSTRAR TELA DE LOGIN OBRIGATÓRIA
   if (!usuario) {
       loginScreen.classList.remove("hidden");
-      renderLoginScreen(); 
+      document.body.classList.add("no-scroll"); // Bloqueia o scroll
+      renderLoginScreen();
       
       mainHeader.classList.add("hidden");
       mainFooter.classList.add("hidden");
       content.classList.add("hidden");
       document.getElementById("modalProduto").classList.add("hidden");
-      return; 
+      return;
   }
 
   // SE CHEGOU AQUI, O USUÁRIO ESTÁ LOGADO
   loginScreen.classList.add("hidden");
+  document.body.classList.remove("no-scroll"); // Libera o scroll
   mainHeader.classList.remove("hidden");
   mainFooter.classList.remove("hidden");
   content.classList.remove("hidden");
@@ -235,7 +237,7 @@ function showPage(page) {
         }
         return sum + p.preco;
     }, 0);
-    const frete = 15.00; 
+    const frete = 15.00;
     const pagamentoTotal = total + frete;
 
     content.innerHTML = `
@@ -658,8 +660,8 @@ function logout() {
   usuario = null;
   carrinho = []; // Limpa o carrinho local
   favoritos = []; // Limpa favoritos local
-  showToast("toastCarrinho", "Você saiu com sucesso."); 
-  showPage("login"); 
+  showToast("toastCarrinho", "Você saiu com sucesso.");
+  showPage("login");
 }
 
 function enviarAtendimento() {
