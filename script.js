@@ -71,39 +71,54 @@ function mudarAba(abaAtiva, abaInativa) {
     document.getElementById('aba-' + abaInativa).classList.remove("active");
 }
 
-// ----------------------------------------------------
-// Função para renderizar o formulário na tela de login
-// ----------------------------------------------------
 function renderLoginScreen() {
     const loginScreen = document.getElementById("loginScreen");
     if (loginScreen.innerHTML.trim() === "") {
         loginScreen.innerHTML = `
-          <div class="login-container">
-            <div class="login-abas">
-              <button id="aba-entrar" class="login-aba active" onclick="mudarAba('entrar', 'cadastrar')">Entrar</button>
-              <button id="aba-cadastrar" class="login-aba" onclick="mudarAba('cadastrar', 'entrar')">Cadastrar</button>
+          <div class="login-split-container">
+            <!-- Lado Esquerdo: Imagem -->
+            <div class="login-visual-side" style="background-image: url('https://i.pinimg.com/1200x/02/0d/dc/020ddc1a6b561b1879183fa69e344b1c.jpg');">
             </div>
-            <div class="login-conteudo">
-              <div id="entrar" class="login-form active">
-                <h3>Bem-vindo à Loja Verde</h3>
-                <input id='loginNome' placeholder='Nome' type='text'><br>
-                <input id='loginSenha' type='password' placeholder='Senha'><br>
-                <button onclick='fazerLogin()' class="login-btn login">Entrar</button>
-                <a href="#" class="link-esqueceu">Esqueceu a senha?</a>
-              </div>
-              <div id="cadastrar" class="login-form">
-                <h3>Novo Cadastro</h3>
-                <input id='cadNome' placeholder='Nome completo' type='text'><br>
-                <input id='cadEmail' placeholder='Email' type='text'><br>
-                <input id='cadSenha' type='password' placeholder='Senha'><br>
-                <input id='cadConfSenha' type='password' placeholder='Repita a senha'><br>
-                <button onclick='cadastrarUsuario()' class="login-btn register">Cadastrar</button>
+
+            <!-- Lado Direito: Formulário -->
+            <div class="login-form-side">
+              <div class="login-box-wrapper">
+                <div class="login-abas">
+                  <button id="aba-entrar" class="login-aba active" onclick="mudarAba('entrar', 'cadastrar')">Entrar</button>
+                  <button id="aba-cadastrar" class="login-aba" onclick="mudarAba('cadastrar', 'entrar')">Cadastrar</button>
+                </div>
+
+                <div class="login-conteudo">
+                  <div id="entrar" class="login-form active">
+                    <h3>Bem-vindo à Loja Verde</h3>
+                    <div class="input-group">
+                      <input id='loginNome' placeholder='Seu nome de usuário' type='text'>
+                    </div>
+                    <div class="input-group">
+                      <input id='loginSenha' type='password' placeholder='Sua senha'>
+                    </div>
+                    <button onclick='fazerLogin()' class="login-btn login">Entrar no Jardim</button>
+                    <a href="#" class="link-esqueceu">Esqueceu a senha?</a>
+                  </div>
+
+                  <div id="cadastrar" class="login-form">
+                    <h3>Criar Conta</h3>
+                    <input id='cadNome' placeholder='Nome completo' type='text'>
+                    <input id='cadEmail' placeholder='Email' type='text'>
+                    <input id='cadSenha' type='password' placeholder='Senha'>
+                    <input id='cadConfSenha' type='password' placeholder='Repita a senha'>
+                    <button onclick='cadastrarUsuario()' class="login-btn register">Cadastrar</button>
+                  </div>
+                </div>
+
+                <div class="login-footer-text">
+                   <p>Loja Verde, sua loja para artigos diversos.</p>
+                </div>
               </div>
             </div>
           </div>`;
     }
 }
-
 
 // ----------------------------------------------------
 // FUNÇÃO SHOWPAGE ATUALIZADA (Lógica de Login Obrigatório)
@@ -674,3 +689,10 @@ function enviarAtendimento() {
 }
 
 window.onload = () => showPage(usuario ? "home" : "login");
+
+window.onclick = function(event) {
+  const modal = document.getElementById("modalProduto");
+  if (event.target == modal) {
+    fecharModal();
+  }
+}
