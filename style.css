@@ -391,21 +391,114 @@ footer {
 .topico-card i { font-size: 2.5rem; color: var(--verde-folha); margin-bottom: 0.5rem; }
 .topico-card span { display: block; font-weight: bold; }
 
-
-/* Estilos Tela de Login Obrigatória */
+/* Estilos Tela de Login Split (Dividida) */
 #loginScreen {
     position: fixed;
     top: 0;
     left: 0;
     width: 100vw;
     height: 100vh;
-    background-image: url('https://source.unsplash.com/1600x900/?greenhouse,fern');
+    background: var(--branco);
+    z-index: 1000;
+}
+
+.login-split-container {
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+
+/* Lado da Imagem */
+.login-visual-side {
+    flex: 1; /* Ocupa 50% */
     background-size: cover;
     background-position: center;
+    background-repeat: no-repeat;
+    display: block;
+}
+
+/* Lado do Formulário */
+.login-form-side {
+    flex: 1; /* Ocupa os outros 50% */
     display: flex;
     align-items: center;
     justify-content: center;
-    z-index: 1000;
+    background: var(--branco);
+    padding: 2rem;
+}
+
+.login-box-wrapper {
+    width: 100%;
+    max-width: 400px; /* Mantém o formulário centralizado e não muito largo */
+}
+
+.login-abas {
+    display: flex;
+    margin-bottom: 2rem;
+    border-bottom: 1px solid #eee;
+}
+
+.login-aba {
+    flex: 1;
+    padding: 1rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    color: #999;
+    transition: 0.3s;
+}
+
+.login-aba.active {
+    color: var(--verde-folha);
+    border-bottom: 2px solid var(--verde-folha);
+    font-weight: bold;
+}
+
+.login-form input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.login-btn {
+    width: 100%;
+    padding: 12px;
+    border-radius: 4px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s;
+    border: none;
+}
+
+.login-btn.login {
+    background: #000; /* Igual ao botão "Clique em mim" da imagem */
+    color: #fff;
+}
+
+.login-btn.login:hover {
+    background: #333;
+}
+
+.login-footer-text {
+    margin-top: 2rem;
+    font-size: 0.85rem;
+    color: #666;
+    line-height: 1.6;
+    text-align: center;
+}
+
+/* Responsividade: No celular a imagem some e fica só o formulário */
+@media (max-width: 768px) {
+    .login-visual-side {
+        display: none;
+    }
+    .login-form-side {
+        flex: 1;
+    }
 }
 
 .login-container {
@@ -490,20 +583,123 @@ footer {
 }
 .link-esqueceu:hover { text-decoration: underline; }
 
+/* --- AJUSTES GERAIS DE RESPONSIVIDADE --- */
 
-/* Responsividade Básica */
-@media (max-width: 768px) {
-    header { padding: 1rem; }
-    nav button { padding: 0.5rem 0.8rem; font-size: 0.9rem; }
-    .checkout-container { flex-direction: column; }
-    .checkout-resumo { max-height: none; }
-    .topicos-grid { grid-template-columns: 1fr; }
+/* 1. Header e Navegação (Estilo Barra de Stories no Mobile) */
+header {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column; /* No mobile, logo em cima, menu embaixo */
+  align-items: center;
+  gap: 1rem;
+}
 
-    /* Ajustes no modal para mobile */
-    .modal-produto-grid {
-        flex-direction: column;
-    }
-    .modal-produto-secoes {
-        flex-direction: column;
-    }
+@media (min-width: 768px) {
+  header {
+    flex-direction: row; /* No PC, um do lado do outro */
+    justify-content: space-between;
+  }
+}
+
+nav {
+  display: flex;
+  overflow-x: auto; /* Permite rolar o menu para os lados no celular */
+  width: 100%;
+  padding-bottom: 5px;
+  gap: 8px;
+  -webkit-overflow-scrolling: touch;
+}
+
+nav::-webkit-scrollbar { display: none; } /* Esconde a barra de scroll pra ficar limpo */
+
+nav button {
+  white-space: nowrap; /* Impede o texto de quebrar linha */
+  flex-shrink: 0; /* Impede o botão de esmagar */
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+}
+
+/* 2. Grid de Produtos Inteligente */
+.grid {
+  display: grid;
+  /* No celular: 2 colunas. No tablet/PC: ajusta sozinho */
+  grid-template-columns: repeat(2, 1fr); 
+  gap: 10px;
+  padding: 10px;
+}
+
+@media (min-width: 600px) {
+  .grid {
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 20px;
+  }
+}
+
+.product img {
+  height: 150px; /* Imagem um pouco menor no mobile */
+}
+
+@media (min-width: 768px) {
+  .product img { height: 200px; }
+}
+
+/* 3. Tela de Login Split (Melhorada) */
+.login-split-container {
+  display: flex;
+  flex-direction: column; /* Celular: Imagem em cima ou oculta */
+  width: 100%;
+  height: 100vh;
+}
+
+.login-visual-side {
+  display: none; /* Escondemos a imagem no celular pra focar no login */
+}
+
+@media (min-width: 800px) {
+  .login-split-container { flex-direction: row; }
+  .login-visual-side { 
+    display: block; 
+    flex: 1.2; 
+  }
+  .login-form-side { flex: 1; }
+}
+
+/* 4. Modal de Produto (Ocupa tudo no celular) */
+.modal-content {
+  width: 95%;
+  height: 90vh; /* Quase a tela toda */
+  overflow-y: auto; /* Permite rolar dentro do modal */
+  padding: 1rem;
+  margin-top: 20px;
+}
+
+@media (min-width: 768px) {
+  .modal-content {
+    width: 80%;
+    height: auto;
+    max-height: 85vh;
+    padding: 2rem;
+  }
+  .modal-produto-grid {
+    display: flex;
+    flex-direction: row;
+  }
+}
+
+.modal-produto-grid {
+  display: flex;
+  flex-direction: column; /* Coluna no mobile */
+  gap: 15px;
+}
+
+/* 5. Ajustes de Checkout */
+.checkout-container {
+  flex-direction: column;
+}
+
+@media (min-width: 900px) {
+  .checkout-container {
+    flex-direction: row;
+    align-items: flex-start;
+  }
 }
