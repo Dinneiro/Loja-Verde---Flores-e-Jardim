@@ -703,3 +703,195 @@ nav button {
     align-items: flex-start;
   }
 }
+:root {
+  --verde-folha: #6da06f;
+  --verde-escuro: #4d7f4e;
+  --bege-fundo: #faf3e0;
+  --branco: #ffffff;
+  --preto: #000000;
+  --cinza-texto: #444;
+  --sucesso: #28a745;
+  --erro: #dc3545;
+  --sombra-leve: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+* { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+
+body {
+  margin: 0;
+  font-family: 'Lato', sans-serif;
+  background-color: var(--bege-fundo);
+  color: var(--cinza-texto);
+  line-height: 1.6;
+  font-size: 16px; /* Ideal para leitura mobile */
+}
+
+/* --- HEADER E NAVEGAÇÃO MOBILE-FRIENDLY --- */
+header {
+  background: var(--branco);
+  padding: 10px 0;
+  border-bottom: 2px solid var(--verde-folha);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.logo {
+  font-family: 'Great Vibes', cursive;
+  font-size: 1.8rem;
+  text-align: center;
+  margin: 0 0 10px 0;
+  color: var(--verde-folha);
+}
+
+nav {
+  display: flex;
+  overflow-x: auto; /* Scroll horizontal no celular */
+  padding: 0 15px 5px 15px;
+  gap: 10px;
+  scrollbar-width: none; /* Esconde barra no Firefox */
+}
+
+nav::-webkit-scrollbar { display: none; } /* Esconde barra no Chrome */
+
+nav button {
+  white-space: nowrap;
+  flex-shrink: 0;
+  background: #eee;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 20px;
+  font-weight: bold;
+  font-size: 0.85rem;
+  color: var(--cinza-texto);
+}
+
+/* --- GRID DE PRODUTOS (2 COLUNAS NO CELULAR) --- */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2 colunas fixas no celular */
+  gap: 12px;
+  padding: 12px;
+}
+
+@media (min-width: 768px) {
+  .grid { grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); }
+  header { display: flex; justify-content: space-between; align-items: center; padding: 10px 5%; }
+  .logo { margin: 0; }
+  nav { width: auto; overflow: visible; }
+}
+
+.product {
+  background: var(--branco);
+  border-radius: 12px;
+  padding: 10px;
+  box-shadow: var(--sombra-leve);
+  display: flex;
+  flex-direction: column;
+}
+
+.product img {
+  width: 100%;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.product strong { font-size: 0.9rem; margin: 8px 0 4px 0; }
+.product p { color: var(--verde-folha); font-weight: bold; margin: 0 0 8px 0; }
+
+/* --- PERFIL E FORMULÁRIOS ACESSÍVEIS --- */
+.profile-card {
+  width: 92%;
+  max-width: 450px;
+  margin: 20px auto;
+  background: var(--branco);
+  padding: 25px;
+  border-radius: 15px;
+  box-shadow: var(--sombra-leve);
+  text-align: center;
+}
+
+.profile-img {
+  width: 120px;
+  height: 120px;
+  border-radius: 60px;
+  border: 4px solid var(--verde-folha);
+  margin-bottom: 15px;
+}
+
+input {
+  width: 100%;
+  padding: 12px;
+  margin: 8px 0;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 1rem; /* Evita zoom automático no iPhone ao clicar */
+}
+
+button {
+  cursor: pointer;
+  transition: 0.2s;
+  font-weight: bold;
+}
+
+.login-btn, .save-btn {
+  background: var(--preto);
+  color: white;
+  border: none;
+  padding: 15px;
+  border-radius: 8px;
+  width: 100%;
+  margin-top: 10px;
+}
+
+/* --- TELA DE LOGIN SPLIT (ADAPTADA) --- */
+#loginScreen {
+  position: fixed;
+  inset: 0;
+  background: white;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+}
+
+.login-visual-side {
+  display: none; /* Esconde imagem no celular para focar no login */
+}
+
+.login-form-side {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 30px;
+}
+
+@media (min-width: 800px) {
+  #loginScreen { flex-direction: row; }
+  .login-visual-side { display: block; flex: 1.2; background-size: cover; background-position: center; }
+  .login-form-side { flex: 1; }
+}
+
+/* --- TOASTS (CENTRALIZADOS EMBAIXO NO MOBILE) --- */
+.toast {
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 12px 25px;
+  border-radius: 25px;
+  color: white;
+  font-weight: bold;
+  z-index: 2000;
+  opacity: 0;
+  transition: 0.3s;
+  width: max-content;
+  max-width: 90%;
+  text-align: center;
+}
+.toast.show { opacity: 1; }
+.toast-carrinho { background: var(--sucesso); }
+.toast-favorito { background: var(--preto); }
+
+.hidden { display: none !important; }
