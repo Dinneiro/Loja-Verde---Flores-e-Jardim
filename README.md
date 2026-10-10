@@ -8,30 +8,30 @@ As imagens abaixo foram capturadas do frontend do projeto em uma renderização 
 
 <table>
   <tr>
-    <td width="50%"><strong>Página inicial — desktop</strong><br><img src="docs/screenshots/home-desktop.png" alt="Página inicial da Loja Verde em desktop" width="100%"></td>
-    <td width="50%"><strong>Detalhe do produto</strong><br><img src="docs/screenshots/product-detail-desktop.png" alt="Modal de detalhes de uma planta com preço e opções de entrega" width="100%"></td>
+    <td width="50%"><strong>Página inicial — desktop</strong><br><img src="docs/home-desktop.png" alt="Página inicial da Loja Verde em desktop" width="100%"></td>
+    <td width="50%"><strong>Detalhe do produto</strong><br><img src="docs/product-detail-desktop.png" alt="Modal de detalhes de uma planta com preço e opções de entrega" width="100%"></td>
   </tr>
   <tr>
-    <td><strong>Cadastro de conta</strong><br><img src="docs/screenshots/account-registration.png" alt="Formulário de criação de conta" width="100%"></td>
-    <td><strong>Avaliações e entrega</strong><br><img src="docs/screenshots/product-reviews-delivery.png" alt="Seção de avaliações e opções de entrega" width="100%"></td>
+    <td><strong>Cadastro de conta</strong><br><img src="docs/account-registration.png" alt="Formulário de criação de conta" width="100%"></td>
+    <td><strong>Avaliações e entrega</strong><br><img src="docs/product-reviews-delivery.png" alt="Seção de avaliações e opções de entrega" width="100%"></td>
   </tr>
   <tr>
-    <td><strong>Comerciantes &amp; Grupo VIP</strong><br><img src="docs/screenshots/merchant-vip-desktop.png" alt="Nova página Comerciantes e Grupo VIP" width="100%"></td>
-    <td><strong>Painel administrativo — prévia</strong><br><img src="docs/screenshots/admin-panel-preview.png" alt="Prévia demonstrativa do painel administrativo" width="100%"></td>
+    <td><strong>Comerciantes &amp; Grupo VIP</strong><br><img src="docs/merchant-vip-desktop.png" alt="Nova página Comerciantes e Grupo VIP" width="100%"></td>
+    <td><strong>Painel administrativo — prévia</strong><br><img src="docs/admin-panel-preview.png" alt="Prévia demonstrativa do painel administrativo" width="100%"></td>
   </tr>
   <tr>
-    <td><strong>Carrinho e checkout</strong><br><img src="docs/screenshots/cart-desktop.png" alt="Carrinho com resumo, cupom e dados de entrega" width="100%"></td>
-    <td><strong>Versão para celular (390 px)</strong><br><img src="docs/screenshots/home-mobile-390.png" alt="Página inicial da Loja Verde em viewport móvel de 390 pixels" width="100%"></td>
+    <td><strong>Carrinho e checkout</strong><br><img src="docs/cart-desktop.png" alt="Carrinho com resumo, cupom e dados de entrega" width="100%"></td>
+    <td><strong>Versão para celular (390 px)</strong><br><img src="docs/home-mobile-390.png" alt="Página inicial da Loja Verde em viewport móvel de 390 pixels" width="100%"></td>
   </tr>
 </table>
 
 ### Outras capturas
 
-- [Navegação com a sanfona aberta](docs/screenshots/navigation-expanded.png)
-- [Detalhe do produto em celular](docs/screenshots/product-detail-mobile-390.png)
-- [Checkout completo — captura longa](docs/screenshots/cart-full-page.png)
-- [Página Comerciantes & Grupo VIP — captura longa](docs/screenshots/merchant-vip-full-page.png)
-- [Capturas de etapas anteriores do desenvolvimento](docs/screenshots/history/)
+- [Navegação com a sanfona aberta](docs/navigation-expanded.png)
+- [Detalhe do produto em celular](docs/product-detail-mobile-390.png)
+- [Checkout completo — captura longa](docs/cart-full-page.png)
+- [Página Comerciantes & Grupo VIP — captura longa](docs/merchant-vip-full-page.png)
+- [Capturas de etapas anteriores do desenvolvimento](docs/history/)
 
 
 ## Iniciar no Windows
