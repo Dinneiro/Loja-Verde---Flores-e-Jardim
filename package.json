@@ -1,21 +1,32 @@
 {
-  "name": "loja-verde-ecommerce",
-  "version": "2.0.0",
-  "private": true,
-  "description": "E-commerce de plantas com frontend HTML/CSS/JS, API Node.js e SQLite",
+  "name": "loja-verde",
+  "version": "2.1.0",
+  "description": "Loja Verde — e-commerce de plantas com login por e-mail, pagamento Mercado Pago e painel admin",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
-    "dev": "node --watch server.js",
-    "check": "node --check server.js && node --check script.js && node --check catalog.js",
-    "test": "node --test tests/*.test.js"
+    "dev": "nodemon server.js",
+    "seed": "node scripts/seed.js",
+    "backup": "node scripts/backup.js",
+    "hash-admin": "node scripts/hash-admin.js",
+    "test": "node --test"
   },
-  "engines": {
-    "node": ">=20"
-  },
+  "engines": { "node": ">=20.17.0" },
+  "license": "ISC",
+  "type": "commonjs",
   "dependencies": {
+    "bcryptjs": "^2.4.3",
     "cors": "^2.8.6",
+    "dotenv": "^16.4.5",
     "express": "^5.3.0",
+    "express-rate-limit": "^7.4.0",
+    "helmet": "^8.0.0",
+    "jsonwebtoken": "^9.0.2",
+    "mercadopago": "^2.0.15",
+    "nodemailer": "^6.9.14",
     "sqlite3": "^6.0.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.4"
   }
 }

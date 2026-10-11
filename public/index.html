@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Loja Verde — Flores, Mudas e Plantas Cultivadas para Você</title>
+  <meta name="description" content="Compre hortaliças frescas, temperos em vaso, suculentas, mudas e plantas ornamentais online. Entrega rápida, frete grátis acima de R$ 99, Pix 5% OFF e Garantia Planta Viva 30 dias.">
+  <meta name="keywords" content="comprar plantas online, suculentas, mudas de hortelã, hortaliças orgânicas, temperos em vaso, floricultura online, plantas para apartamento, entrega de plantas SP">
+  <meta property="og:title" content="Loja Verde — Flores, Mudas e Plantas Online">
+  <meta property="og:description" content="Plantas saudáveis, frescas e com garantia viva entregues na sua porta. Frete grátis acima de R$ 99 e Pix com 5% de desconto.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1466692476868-aef1dfb1e735?auto=format&fit=crop&w=1200&q=80">
+  <meta name="theme-color" content="#1F4D3A">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700;800&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="/style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Store",
+    "name": "Loja Verde",
+    "description": "E-commerce de hortaliças, temperos, suculentas, mudas e plantas ornamentais com entrega e garantia de 30 dias.",
+    "url": "https://lojaverde.com.br",
+    "telephone": "+5511999999999",
+    "email": "contato@lojaverde.com.br",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Rua das Hortênsias, 123",
+      "addressLocality": "São Paulo",
+      "addressRegion": "SP",
+      "postalCode": "00000-000",
+      "addressCountry": "BR"
+    },
+    "priceRange": "$$",
+    "paymentAccepted": "Pix, Credit Card, Boleto",
+    "currenciesAccepted": "BRL"
+  }
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#content">Ir direto para o conteúdo</a>
+
+  <!-- Top Announcement Bar (Benchmarking Shopee / Mercado Livre) -->
+  <div id="topAnnouncementBar" class="announcement-bar">
+    <div class="announcement-content">
+      <span>🚚 <strong>Frete Grátis</strong> acima de R$ 99</span>
+      <span class="announcement-sep">•</span>
+      <span>⚡ <strong>Pix com 5% OFF</strong> ou 3x sem juros</span>
+      <span class="announcement-sep">•</span>
+      <span>🎟️ 1ª Compra? Cupom <strong class="coupon-highlight" onclick="copiarCupom('VERDE10')">VERDE10</strong> (-10% OFF)</span>
+      <span class="announcement-sep">•</span>
+      <span>🌿 <a href="#" onclick="abrirModalGarantia(); return false;" style="text-decoration: underline;">Garantia Planta Viva 30 Dias</a></span>
+    </div>
+  </div>
+
+  <!-- Cabeçalho Principal -->
+  <header id="mainHeader">
+    <div class="header-top-row">
+      <div class="header-brand-wrap">
+        <h1 class="logo">
+          <button type="button" class="logo-btn" onclick="navegarCategoria('todos')">
+            <span class="logo-leaf-icon"><i class="fa fa-leaf"></i></span>
+            <span>Loja Verde</span>
+          </button>
+        </h1>
+      </div>
+      
+      <!-- Barra de Busca Rápida com Autocomplete / Filtro -->
+      <div class="header-search-wrap">
+        <i class="fa fa-search search-icon"></i>
+        <input type="search" aria-label="Buscar mudas, ervas, suculentas..." id="campoBuscaGlobal" placeholder="Buscar mudas, ervas, suculentas..." oninput="filtrarProdutosBusca(this.value)">
+        <button type="button" aria-label="Limpar busca" id="btnClearBusca" class="clear-search-btn hidden" onclick="limparBusca()">&times;</button>
+      </div>
+
+      <!-- Ações do Header -->
+      <div class="header-actions">
+        <a href="https://wa.me/5511999999999?text=Olá!%20Vim%20pelo%20site%20da%20Loja%20Verde%20e%20gostaria%20de%20tirar%20uma%20dúvida%20🌿" 
+            target="_blank" rel="noopener noreferrer" class="btn-header-whatsapp" title="Falar no WhatsApp">
+          <i class="fa-brands fa-whatsapp" style="color: #25D366; font-size: 1.1rem;"></i>
+          <span>WhatsApp</span>
+        </a>
+
+        <button type="button" class="btn-header-carrinho hidden" id="btnCarrinhoHeader" onclick="showPage('carrinho')" title="Ver carrinho de compras">
+          <i class="fa fa-shopping-cart"></i>
+          <span>Carrinho</span>
+          <span id="cart-count" class="cart-badge"></span>
+        </button>
+
+        <button type="button" class="btn-header-user" onclick="abrirModalOuPerfil()" id="btnPerfilHeader" title="Minha conta">
+          <img id="avatarHeader" class="avatar-header hidden" alt="">
+          <i class="fa fa-user-circle" id="iconePerfilHeader"></i>
+          <span id="labelUsuarioHeader">Entrar</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Navegação de Categorias em Linha (Sub-Header) -->
+    <nav class="header-categories-nav" aria-label="Departamentos da loja">
+      <div class="dept-bar">
+        <button type="button" class="dept-toggle" id="btnDept" aria-expanded="false" aria-controls="painelDept" onclick="alternarDepartamentos()">
+          <i class="fa fa-bars"></i>
+          <span>Departamentos</span>
+          <i class="fa fa-chevron-down dept-chevron"></i>
+        </button>
+        <span class="dept-atual" id="deptAtual">Todas as plantas</span>
+      </div>
+      <div id="painelDept" class="dept-panel hidden">
+        <p class="dept-legenda">Comprar</p>
+        <div class="dept-grid">
+          <button class="nav-cat-btn active" data-cat="todos" onclick="navegarCategoria('todos')"><i class="fa fa-border-all"></i> Todas</button>
+          <button class="nav-cat-btn" data-cat="hortalicas" onclick="navegarCategoria('hortalicas')">🥬 Hortaliças</button>
+          <button class="nav-cat-btn" data-cat="temperos" onclick="navegarCategoria('temperos')">🌱 Temperos e ervas</button>
+          <button class="nav-cat-btn" data-cat="ornamentais" onclick="navegarCategoria('ornamentais')">🪴 Plantas ornamentais</button>
+          <button class="nav-cat-btn" data-cat="mudas" onclick="navegarCategoria('mudas')">🌳 Mudas</button>
+          <button class="nav-cat-btn" data-cat="suculentas" onclick="navegarCategoria('suculentas')">🌵 Suculentas</button>
+          <button class="nav-cat-btn" data-cat="kits" onclick="navegarCategoria('kits')">🎁 Kits</button>
+          <button class="nav-cat-btn badge-finados" data-cat="finados" onclick="navegarCategoria('finados')">🕊️ Especial Finados</button>
+        </div>
+        <p class="dept-legenda">Mais opções</p>
+        <div class="dept-grid">
+          <button class="nav-cat-btn badge-quiz" type="button" onclick="fecharDepartamentos(); abrirModalQuiz()">✨ Qual planta combina com você?</button>
+          <button class="nav-cat-btn" type="button" onclick="fecharDepartamentos(); abrirModalEmpresas()">🏢 Para empresas</button>
+          <button class="nav-cat-btn" type="button" onclick="fecharDepartamentos(); abrirModalGarantia()">🌿 Garantia 30 dias</button>
+          <button class="nav-cat-btn" type="button" onclick="fecharDepartamentos(); showPage('atendimento')">💬 Central de ajuda</button>
+          <button class="nav-cat-btn" type="button" onclick="fecharDepartamentos(); showPage('favoritos')">❤️ Favoritos</button>
+          <button class="nav-cat-btn" type="button" onclick="fecharDepartamentos(); showPage('comerciantes')">💼 Grupo VIP / parceiros</button>
+          <a class="nav-cat-btn nav-cat-link" href="/admin.html">📊 Painel da equipe</a>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Conteúdo Principal Dinâmico -->
+  <main id="content" tabindex="-1"></main>
+
+  <!-- =====================================================================
+        MODAIS
+        ===================================================================== -->
+  
+  <!-- Modal de Produto -->
+  <div id="modalProduto" class="modal hidden" role="dialog" aria-modal="true" aria-label="Detalhes do produto">
+    <div class="modal-content">
+      <button type="button" class="close" aria-label="Fechar" onclick="fecharModal()">&times;</button>
+      <div id="detalhesProduto"></div>
+    </div>
+  </div>
+
+  <!-- Modal do Quiz -->
+  <div id="modalQuiz" class="modal hidden" role="dialog" aria-modal="true" aria-label="Quiz da Planta Ideal">
+    <div class="modal-content" style="max-width: 640px;">
+      <button type="button" class="close" aria-label="Fechar" onclick="fecharModalQuiz()">&times;</button>
+      <div id="quizContainer" class="quiz-container-box"></div>
+    </div>
+  </div>
+
+  <!-- Modal de Assinatura -->
+  <div id="modalAssinatura" class="modal hidden" role="dialog" aria-modal="true" aria-label="Assinatura de Hortaliças">
+    <div class="modal-content" style="max-width: 620px;">
+      <button type="button" class="close" aria-label="Fechar" onclick="fecharModalAssinatura()">&times;</button>
+      <div style="text-align: center; padding: 10px 0;">
+        <span style="font-size: 2.5rem;">🥬</span>
+        <h2 style="font-size: 1.8rem; margin: 8px 0; color: var(--verde-escuro);">Clube da Cesta Verde</h2>
+        <p style="color: var(--texto-secundario); margin-bottom: 20px;">
+          Receba hortaliças, temperos e folhas colhidas no dia direto na sua porta com frete grátis e brinde na 1ª entrega.
+        </p>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px; text-align: left; margin-bottom: 24px;">
+          <div style="background: #F6F9F3; border: 2px solid var(--verde-suave); border-radius: 16px; padding: 18px; cursor: pointer;" onclick="assinarPlano('Semanal')">
+            <span style="background: var(--verde-escuro); color: #fff; font-size: 0.72rem; padding: 2px 8px; border-radius: 999px; font-weight: 700;">POPULAR</span>
+            <h4 style="margin: 6px 0; color: var(--verde-escuro);">Cesta Semanal</h4>
+            <p style="font-size: 0.85rem; color: var(--texto-secundario);">7 a 9 itens frescos colhidos no dia.</p>
+            <strong style="display: block; margin-top: 8px; font-size: 1.25rem; color: var(--terracota);">R$ 49,90 / sem</strong>
+          </div>
+
+          <div style="background: #F6F9F3; border: 1px solid var(--borda-suave); border-radius: 16px; padding: 18px; cursor: pointer;" onclick="assinarPlano('Quinzenal')">
+            <span style="background: #6C757D; color: #fff; font-size: 0.72rem; padding: 2px 8px; border-radius: 999px; font-weight: 700;">FLEXÍVEL</span>
+            <h4 style="margin: 6px 0; color: var(--verde-escuro);">Cesta Quinzenal</h4>
+            <p style="font-size: 0.85rem; color: var(--texto-secundario);">Entrega a cada 15 dias sem fidelidade.</p>
+            <strong style="display: block; margin-top: 8px; font-size: 1.25rem; color: var(--terracota);">R$ 59,90 / quin</strong>
+          </div>
+        </div>
+
+        <button type="button" class="btn-buy-now" style="width: 100%;" onclick="assinarPlano('Semanal')">
+          <i class="fa-brands fa-whatsapp"></i> Assinar via WhatsApp
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Corporativo -->
+  <div id="modalEmpresas" class="modal hidden" role="dialog" aria-modal="true" aria-label="Para Empresas e Eventos">
+    <div class="modal-content" style="max-width: 600px;">
+      <button type="button" class="close" aria-label="Fechar" onclick="fecharModalEmpresas()">&times;</button>
+      <div style="text-align: center; padding: 10px 0;">
+        <span style="font-size: 2.5rem;">🏢</span>
+        <h2 style="font-size: 1.7rem; margin: 8px 0; color: var(--verde-escuro);">Plantas para Empresas e Eventos</h2>
+        <p style="color: var(--texto-secundario); margin-bottom: 20px;">
+          Fornecemos ervas frescas para restaurantes, vasos corporativos para escritórios, brindes vivos ecológicos e decoração botânica.
+        </p>
+        <a href="https://wa.me/5511999999999?text=Olá!%20Gostaria%20de%20um%20orçamento%20corporativo%20para%20minha%20empresa/evento%20🌿" 
+           target="_blank" rel="noopener noreferrer" class="btn-confirm-whatsapp-order">
+          <i class="fa-brands fa-whatsapp"></i> Solicitar Orçamento no WhatsApp
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Garantia -->
+  <div id="modalGarantia" class="modal hidden" role="dialog" aria-modal="true" aria-label="Regras da Garantia Planta Viva">
+    <div class="modal-content" style="max-width: 600px;">
+      <button type="button" class="close" aria-label="Fechar" onclick="fecharModalGarantia()">&times;</button>
+      <div style="padding: 10px 0;">
+        <div style="text-align: center;">
+          <span style="font-size: 2.5rem;">🌿</span>
+          <h2 style="font-size: 1.7rem; margin: 8px 0; color: var(--verde-escuro);">Garantia Planta Viva — 30 dias</h2>
+          <p style="color: var(--texto-secundario); margin-bottom: 16px;">
+            Planta saudável ou troca sem complicação.
+          </p>
+        </div>
+        <ul style="text-align: left; color: var(--texto-secundario); line-height: 1.65; margin: 0 0 18px; padding-left: 1.2rem;">
+          <li>Se a planta chegar morta ou morrer em até <strong>30 dias</strong> por problema de transporte, trocamos sem custo.</li>
+          <li>Envie fotos + número do pedido para <strong>contato@lojaverde.com.br</strong>.</li>
+          <li>Análise em até 2 dias úteis · nova muda ou reembolso.</li>
+          <li>Não cobre: falta de rega, excesso de água ou sol inadequado após a entrega.</li>
+          <li>Direito de arrependimento (CDC art. 49): 7 dias corridos após o recebimento.</li>
+        </ul>
+        <p style="font-size: 0.85rem; color: #6b7c6b; margin-bottom: 16px;">
+          Detalhes completos em <a href="/trocas.html" style="text-decoration:underline;">Trocas e Devoluções</a>.
+        </p>
+        <button type="button" class="btn-buy-now" style="width: 100%;" onclick="fecharModalGarantia()">
+          Entendi, comprar com segurança
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal de Login -->
+  <div id="modalLogin" class="modal hidden" role="dialog" aria-modal="true" aria-label="Entrar ou Cadastrar">
+    <div class="modal-content" style="max-width: 480px;">
+      <button type="button" class="close" aria-label="Fechar" onclick="fecharModalLogin()">&times;</button>
+      <div id="loginModalBody"></div>
+    </div>
+  </div>
+
+  <!-- Toasts -->
+  <div id="toastCarrinho" class="toast toast-carrinho" role="status" aria-live="polite"></div>
+  <div id="toastFavorito" class="toast toast-favorito" role="alert"></div>
+
+  <!-- Botão WhatsApp Flutuante -->
+  <a href="https://wa.me/5511999999999?text=Olá!%20Estou%20no%20site%20da%20Loja%20Verde%20e%20gostaria%20de%20fazer%20um%20pedido%20🌿"
+     target="_blank" rel="noopener noreferrer" class="whatsapp-fab" aria-label="Fale conosco no WhatsApp" title="Fale conosco no WhatsApp">
+    <i class="fa-brands fa-whatsapp"></i>
+  </a>
+
+  <!-- Rodapé -->
+  <footer id="mainFooter">
+    <div class="footer-top">
+      <div class="footer-col">
+        <h3 style="font-family: var(--fonte-titulo); font-size: 1.4rem; color: #ffffff; margin-bottom: 8px;">Loja Verde 🌿</h3>
+        <p>Hortaliças frescas, mudas selecionadas, temperos aromáticos e flores cultivadas com dedicação para o seu lar.</p>
+        <p style="font-size: 0.8rem; color: #8BA894; margin-top: 6px;">Cultivo sustentável • Entregas climatizadas • Atendimento humano</p>
+      </div>
+      <div class="footer-col">
+        <h4>Compre por Categoria</h4>
+        <ul>
+          <li><a href="#" onclick="navegarCategoria('hortalicas'); return false;">Hortaliças Frescas</a></li>
+          <li><a href="#" onclick="navegarCategoria('temperos'); return false;">Temperos & Ervas</a></li>
+          <li><a href="#" onclick="navegarCategoria('ornamentais'); return false;">Plantas Ornamentais</a></li>
+          <li><a href="#" onclick="navegarCategoria('suculentas'); return false;">Suculentas & Cactos</a></li>
+          <li><a href="#" onclick="navegarCategoria('finados'); return false;">Especial Finados 🕊️</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Ajuda & Políticas</h4>
+        <ul>
+          <li><a href="#" onclick="abrirModalGarantia(); return false;">Garantia Planta Viva</a></li>
+          <li><a href="#" onclick="showPage('atendimento'); return false;">Central de Ajuda</a></li>
+          <li><a href="/entrega.html">Entrega e Áreas</a></li>
+          <li><a href="/trocas.html">Trocas e Devoluções</a></li>
+          <li><a href="/termos.html">Termos de Uso</a></li>
+          <li><a href="/privacidade.html">Privacidade (LGPD)</a></li>
+          <li><a href="#" onclick="abrirModalEmpresas(); return false;">Vendas Corporativas</a></li>
+          <li><a href="#" onclick="abrirModalAssinatura(); return false;">Clube de Assinatura</a></li>
+          <li><a href="#" onclick="showPage('favoritos'); return false;">Meus Favoritos ❤️</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Fale Conosco</h4>
+        <p><i class="fa fa-envelope"></i> contato@lojaverde.com.br</p>
+        <p><i class="fa-brands fa-whatsapp"></i> (11) 9 9999-9999</p>
+        <p><i class="fa fa-clock"></i> Seg a Sáb: 08h às 18h</p>
+        <div class="footer-social">
+          <a href="#" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="https://wa.me/5511999999999" target="_blank" rel="noopener noreferrer" title="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+          <a href="#" title="Pinterest"><i class="fa-brands fa-pinterest"></i></a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-legal" style="border-top: 1px solid rgba(255,255,255,0.12); margin-top: 20px; padding-top: 16px; font-size: 0.78rem; color: #8BA894; line-height: 1.6;">
+      <p><strong style="color:#c8dcc8;">Dados da empresa (Lei do E-commerce — Decreto nº 7.962/2013)</strong></p>
+      <p>Loja Verde Comércio de Plantas Ltda. &nbsp;|&nbsp; CNPJ: <span id="loja-cnpj">00.000.000/0001-00</span></p>
+      <p>Endereço: <span id="loja-endereco">Rua das Hortênsias, 123 — Bairro Jardim — São Paulo/SP — CEP 00000-000</span></p>
+      <p style="margin-top:6px;opacity:0.85;">Substitua os dados acima pelos oficiais da sua empresa antes de colocar o site no ar.</p>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Loja Verde — Da nossa horta para a sua casa. Todos os direitos reservados 🌱</p>
+      <div class="footer-pagamentos">
+        <i class="fa-brands fa-pix" title="Pix com 5% de desconto"></i>
+        <i class="fa-brands fa-cc-visa" title="Visa"></i>
+        <i class="fa-brands fa-cc-mastercard" title="Mastercard"></i>
+        <i class="fa-brands fa-cc-elo" title="Elo"></i>
+        <i class="fa fa-barcode" title="Boleto bancário"></i>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Front-end: catálogo/carrinho, login, checkout e páginas auxiliares -->
+  <script src="/script.js"></script>
+  <script src="/auth.js"></script>
+  <script src="/checkout.js"></script>
+  <script src="/paginas.js"></script>
+</body>
+</html>

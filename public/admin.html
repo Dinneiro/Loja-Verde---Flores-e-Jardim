@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Painel Admin — Loja Verde</title>
+<style>
+  body{font-family:system-ui,sans-serif;margin:0;background:#F0F6EC;color:#1A2820;}
+  header{background:#1F4D3A;color:#fff;padding:16px 24px;display:flex;justify-content:space-between;align-items:center;}
+  main{max-width:1280px;margin:24px auto;padding:0 20px;}
+  .card{background:#fff;border-radius:16px;padding:20px;margin-bottom:16px;box-shadow:0 2px 10px rgba(0,0,0,.05);overflow-x:auto;}
+  table{width:100%;border-collapse:collapse;font-size:14px;}
+  th,td{padding:8px 10px;text-align:left;border-bottom:1px solid #ECEAE3;vertical-align:top;}
+  th{background:#F8F7F2;}
+  input,select,button{padding:8px 12px;border-radius:10px;border:1px solid #E2DFD6;font-size:14px;}
+  button{background:#B84E12;color:#fff;border:none;cursor:pointer;font-weight:600;}
+  button.alt{background:#1F4D3A;}
+  .row{display:flex;gap:10px;align-items:center;flex-wrap:wrap;}
+  .badge{padding:3px 10px;border-radius:99px;font-size:12px;font-weight:700;background:#eee;}
+  .badge.pago,.badge.entregue{background:#E8F5E9;color:#2E7D32;}
+  .badge.aguardando_pagamento,.badge.separando{background:#FFF4E5;color:#C77700;}
+  .badge.enviado{background:#E3F2FD;color:#1565C0;}
+  .badge.cancelado,.badge.reembolsado{background:#FFEBEE;color:#C62828;}
+  .kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;margin-bottom:16px;}
+  .kpi{background:#fff;border-radius:16px;padding:16px 18px;box-shadow:0 2px 10px rgba(0,0,0,.05);}
+  .kpi span{display:block;color:#5c6b62;font-size:13px;}
+  .kpi strong{font-size:1.45rem;color:#1F4D3A;}
+  .barras{display:flex;flex-direction:column;gap:8px;margin:8px 0 22px;}
+  .barra-linha{display:grid;grid-template-columns:150px 1fr 48px;gap:10px;align-items:center;font-size:13px;}
+  .barra-trilho{background:#E7F0E4;border-radius:99px;height:10px;overflow:hidden;}
+  .barra-fill{display:block;height:100%;background:#2D6A4F;border-radius:99px;}
+</style>
+</head>
+<body>
+<header>
+  <strong>🌿 Loja Verde — Painel Administrativo</strong>
+  <button id="logout" class="alt" style="display:none;">Sair</button>
+</header>
+<main>
+  <div id="loginBox" class="card">
+    <h3>Entrar como administrador</h3>
+    <div class="row">
+      <input id="email" type="email" placeholder="E-mail admin" autocomplete="username">
+      <input id="senha" type="password" placeholder="Senha" autocomplete="current-password">
+      <button id="btnLogin">Entrar</button>
+    </div>
+    <p id="msgLogin" class="erro"></p>
+  </div>
+
+  <div id="painel" style="display:none;">
+    <div class="kpis" id="kpis"></div>
+    <div class="card">
+      <h3 style="margin-top:0;">Fluxo de compras</h3>
+      <div id="graficoFluxo" class="barras"></div>
+      <h3>Receita por forma de pagamento</h3>
+      <div id="graficoPag" class="barras"></div>
+    </div>
+    <div class="card">
+      <div class="row" style="justify-content:space-between;">
+        <h3 style="margin:0;">Pedidos recentes</h3>
+        <button id="btnRefresh" class="alt">🔄 Atualizar</button>
+      </div>
+      <table id="tabelaPedidos">
+        <thead><tr><th>#</th><th>Cliente</th><th>Itens / entrega</th><th>Total</th><th>Pagamento</th><th>Status</th><th>Ação</th></tr></thead>
+        <tbody></tbody>
+      </table>
+    </div>
+
+    <div class="card">
+      <h3 style="margin-top:0;">Produtos</h3>
+      <table id="tabelaProdutos">
+        <thead><tr><th>#</th><th>Nome</th><th>Categoria</th><th>Preço (R$)</th><th>Estoque</th><th>Ativo</th><th></th></tr></thead>
+        <tbody></tbody>
+      </table>
+    </div>
+
+    <div class="card">
+      <h3 style="margin-top:0;">Novo produto</h3>
+      <div class="row">
+        <input id="pNome" placeholder="Nome" maxlength="120">
+        <select id="pCat">
+          <option>hortalicas</option><option>temperos</option><option>ornamentais</option>
+          <option>mudas</option><option>suculentas</option><option>kits</option><option>finados</option>
+        </select>
+        <input id="pPreco" placeholder="Preço (29.90)" inputmode="decimal">
+        <input id="pEstoque" placeholder="Estoque" inputmode="numeric">
+        <input id="pImg" placeholder="https://… ou /img/arquivo.jpg" style="min-width:240px;">
+        <button id="btnProduto">Cadastrar</button>
+      </div>
+      <p id="msgProduto"></p>
+    </div>
+  </div>
+</main>
+<script src="/admin.js"></script>
+</body>
+</html>

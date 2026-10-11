@@ -1,0 +1,172 @@
+[
+  {
+    "id": 1,
+    "nome": "Alface Crespa Orgânica",
+    "categoria": "hortalicas",
+    "descricao": "Alface crespa colhida no dia da entrega. Raízes preservadas no saquinho para durar até 10 dias fresca e crocante na sua geladeira.",
+    "preco": 6.9,
+    "preco_original": 8.5,
+    "imagem": "https://images.unsplash.com/photo-1622206151226-18ca2c9ab4a1?auto=format&fit=crop&w=800&q=80",
+    "estoque": 45
+  },
+  {
+    "id": 2,
+    "nome": "Rúcula Selvagem Orgânica",
+    "categoria": "hortalicas",
+    "descricao": "Sabor marcante e levemente picante, rica em ferro e vitaminas. Folhas selecionadas e colhidas na madrugada.",
+    "preco": 7.5,
+    "preco_original": 9,
+    "imagem": "https://images.unsplash.com/photo-1576045057995-568f588f82fb?auto=format&fit=crop&w=800&q=80",
+    "estoque": 30
+  },
+  {
+    "id": 3,
+    "nome": "Couve Manteiga em Maço Vivo",
+    "categoria": "hortalicas",
+    "descricao": "Folhas grandes, macias e sem agrotóxicos. Excelente para sucos verdes matinais e refogados rápidos.",
+    "preco": 8,
+    "preco_original": 10,
+    "imagem": "https://images.unsplash.com/photo-1524179091875-bf99a9a6fa57?auto=format&fit=crop&w=800&q=80",
+    "estoque": 25
+  },
+  {
+    "id": 4,
+    "nome": "Manjericão Italiano em Vaso",
+    "categoria": "temperos",
+    "descricao": "Vaso já enraizado e pronto para colher na hora do preparo de massas, pizzas e molho pesto caseiro.",
+    "preco": 14.9,
+    "preco_original": 18,
+    "imagem": "https://images.unsplash.com/photo-1608686207856-001b95cf60ca?auto=format&fit=crop&w=800&q=80",
+    "estoque": 40
+  },
+  {
+    "id": 5,
+    "nome": "Alecrim Aromático em Vaso de Barro",
+    "categoria": "temperos",
+    "descricao": "Super resistente à falta de água. Excelente para carnes, batatas e pães artesanais.",
+    "preco": 18,
+    "preco_original": 22,
+    "imagem": "https://images.unsplash.com/photo-1515543237350-b3eea1ec8082?auto=format&fit=crop&w=800&q=80",
+    "estoque": 35
+  },
+  {
+    "id": 6,
+    "nome": "Hortelã Doce em Vaso",
+    "categoria": "temperos",
+    "descricao": "Perfeita para chás digestivos, sucos refrescantes e drinks. Crescimento vigoroso.",
+    "preco": 12.9,
+    "preco_original": 15,
+    "imagem": "https://images.unsplash.com/photo-1628556270448-4d4e4148e1b1?auto=format&fit=crop&w=800&q=80",
+    "estoque": 50
+  },
+  {
+    "id": 7,
+    "nome": "Costela-de-Adão (Monstera Deliciosa)",
+    "categoria": "ornamentais",
+    "descricao": "A queridinha da decoração moderna. Folhas fenestradas exuberantes que purificam o ar.",
+    "preco": 58,
+    "preco_original": 72,
+    "imagem": "https://images.unsplash.com/photo-1614594975525-e45190c55d0b?auto=format&fit=crop&w=800&q=80",
+    "estoque": 14
+  },
+  {
+    "id": 8,
+    "nome": "Zamioculca (ZZ Plant) Resistente",
+    "categoria": "ornamentais",
+    "descricao": "Planta quase indestrutível! Sobrevive perfeitamente em locais de pouca luz (escritórios e quartos).",
+    "preco": 42,
+    "preco_original": 49,
+    "imagem": "https://images.unsplash.com/photo-1632207691143-643e2a9a9361?auto=format&fit=crop&w=800&q=80",
+    "estoque": 18
+  },
+  {
+    "id": 9,
+    "nome": "Lírio-da-Paz Purificador",
+    "categoria": "ornamentais",
+    "descricao": "Flores brancas elegantes que simbolizam serenidade. Reconhecido pela NASA por filtrar toxinas do ar.",
+    "preco": 36,
+    "preco_original": 44,
+    "imagem": "https://images.unsplash.com/photo-1593691509543-c55fb32e7355?auto=format&fit=crop&w=800&q=80",
+    "estoque": 22
+  },
+  {
+    "id": 10,
+    "nome": "Coleção 4 Mini Suculentas Nobres",
+    "categoria": "suculentas",
+    "descricao": "Quatro espécies variadas de mini suculentas coloridas. Excelente presente para mesas de trabalho.",
+    "preco": 24.9,
+    "preco_original": 32,
+    "imagem": "https://images.unsplash.com/photo-1509423350716-97f9360b4e09?auto=format&fit=crop&w=800&q=80",
+    "estoque": 55
+  },
+  {
+    "id": 11,
+    "nome": "Echeveria Rosa do Deserto em Vaso",
+    "categoria": "suculentas",
+    "descricao": "Formato simétrico de rosa perfeita com folhas aveludadas em tons verde-azulados e bordas rosadas.",
+    "preco": 19.9,
+    "preco_original": 25,
+    "imagem": "https://images.unsplash.com/photo-1520302630591-fd1c66edc19d?auto=format&fit=crop&w=800&q=80",
+    "estoque": 20
+  },
+  {
+    "id": 12,
+    "nome": "Kit Horta na Varanda Completa",
+    "categoria": "kits",
+    "descricao": "Contém: 1 Jardineira auto-irrigável, 3 mudas selecionadas, substrato orgânico e manual de cultivo.",
+    "preco": 69.9,
+    "preco_original": 89,
+    "imagem": "https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?auto=format&fit=crop&w=800&q=80",
+    "estoque": 15
+  },
+  {
+    "id": 13,
+    "nome": "Kit Cantinho do Chá Fresco",
+    "categoria": "kits",
+    "descricao": "3 vasos aromáticos: Camomila, Capim-Santo e Hortelã Doce. Presente terapêutico para desacelerar.",
+    "preco": 49.9,
+    "preco_original": 62,
+    "imagem": "https://images.unsplash.com/photo-1576092768241-dec231879fc3?auto=format&fit=crop&w=800&q=80",
+    "estoque": 18
+  },
+  {
+    "id": 14,
+    "nome": "Vaso de Crisântemo Nobre Branco (Anti-Dengue)",
+    "categoria": "finados",
+    "descricao": "O símbolo clássico de respeito. Em vaso seguro com substrato drenado (permitido em cemitérios contra a dengue).",
+    "preco": 32,
+    "preco_original": 39,
+    "imagem": "https://images.unsplash.com/photo-1508610048659-a06b669e3321?auto=format&fit=crop&w=800&q=80",
+    "estoque": 60
+  },
+  {
+    "id": 15,
+    "nome": "Kalanchoe Dobrado Branco em Cerâmica",
+    "categoria": "finados",
+    "descricao": "Conhecida como 'Flor da Fortuna e da Memória'. Alta resistência a sol direto e ventos.",
+    "preco": 28,
+    "preco_original": 35,
+    "imagem": "https://images.unsplash.com/photo-1563245372-f21724e3856d?auto=format&fit=crop&w=800&q=80",
+    "estoque": 45
+  },
+  {
+    "id": 16,
+    "nome": "Orquídea Phalaenopsis Branca Memorial",
+    "categoria": "finados",
+    "descricao": "Beleza pura e serenidade. Flores brancas duradouras que transmitem carinho e reverência.",
+    "preco": 65,
+    "preco_original": 78,
+    "imagem": "https://images.unsplash.com/photo-1525310072745-f49212b5ac6d?auto=format&fit=crop&w=800&q=80",
+    "estoque": 20
+  },
+  {
+    "id": 17,
+    "nome": "Muda de Jabuticabeira Híbrida em Vaso",
+    "categoria": "mudas",
+    "descricao": "Produz jabuticabas várias vezes ao ano mesmo em vasos de apartamento com varanda ensolarada.",
+    "preco": 75,
+    "preco_original": 95,
+    "imagem": "https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&w=800&q=80",
+    "estoque": 8
+  }
+]
